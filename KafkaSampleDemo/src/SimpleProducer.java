@@ -41,14 +41,11 @@ public class SimpleProducer
       //The buffer.memory controls the total amount of memory available to the producer for buffering.   
       props.put("buffer.memory", 33554432);
       
-      props.put("key.serializer", 
-         "org.apache.kafka.common.serialization.StringSerializer");
+      props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
          
-      props.put("value.serializer", 
-         "org.apache.kafka.common.serialization.StringSerializer");
+      props.put("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
       
-      Producer<String, String> producer = new KafkaProducer
-         <String, String>(props);
+      Producer<String, String> producer = new KafkaProducer<String, String>(props);
             
       for(int i = 0; i < 10; i++)
          producer.send(new ProducerRecord<String, String>(topicName, 
